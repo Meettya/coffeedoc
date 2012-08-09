@@ -30,8 +30,9 @@ exports.run = ->
         .alias('i', 'ignore')
         .describe('help', 'Show this help')
         .alias('h', 'help')
-        .describe('hide-private', 'Do not document methods beginning with an underscore')
-        .boolean('hide-private')
+        .describe('private', 'Show methods beginning with an underscore (to hide --no-private)')
+        .boolean('private')
+        .default('private', true)
 
     argv = opts.argv
 
@@ -77,7 +78,7 @@ exports.run = ->
     getSourceFiles(o) for o in argv._
     sources.sort()
 
-    renderer = new rendercls({ hideprivate: argv['hide-private'] })
+    renderer = new rendercls({ showprivate: argv['private'] })
 
     # Build a hash with documentation information for each source file.
     modules = []

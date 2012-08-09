@@ -42,7 +42,7 @@
 <% if method.docstring: %><%- method.docstring %><% end %>
       <% end %>
     <% end %>
-    <% if not @options.hideprivate and cls.privatemethods.length > 0: %>
+    <% if @options.showprivate and cls.privatemethods.length > 0: %>
 #### Private Methods          
       <% for method in cls.privatemethods: %>
 ##### <a name="<%= method.name %>"><%= @module.quoteMarkdown(method.name) %>(<%= @module.params(method.params) %>)</a>

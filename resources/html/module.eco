@@ -78,7 +78,7 @@
                 <% end %>
               </div>
               <% end %>
-              <% if not @options.hideprivate and cls.privatemethods.length > 0: %>
+              <% if @options.showprivate and cls.privatemethods.length > 0: %>
               <div class="privatemethods">
                 <h3>Private Methods</h3>
                 <% for method in cls.privatemethods: %>
